@@ -11,6 +11,8 @@
 |
 */
 
+use App\User;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -29,4 +31,9 @@ Route::resource('admin/users', 'AdminUsersController');
 
 Route::get('/admin', function (){
     return view('admin.index');
+});
+
+Route::get('/createuser', function(){
+    User::create(['name'=>'oudam sos', 'role'=>1,'password'=>'123','email'=>'sos@gmail.com']);
+    return "success";
 });
